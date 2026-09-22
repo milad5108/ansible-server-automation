@@ -1,0 +1,20 @@
+---
+- name: Base server setup
+  hosts: servers
+  become: true
+
+  tasks:
+    - name: Update APT cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install basic packages
+      ansible.builtin.apt:
+        name:
+          - curl
+          - git
+          - htop
+        state: present
+
+
