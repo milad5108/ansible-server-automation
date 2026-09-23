@@ -12,4 +12,3 @@
         restart_policy: unless-stopped
         published_ports:
           - "{{ web_app_host_port }}:{{ web_app_container_port }}"
-
