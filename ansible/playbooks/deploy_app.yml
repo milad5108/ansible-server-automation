@@ -1,0 +1,15 @@
+---
+- name: Deploy Nginx container
+  hosts: servers
+  become: true
+
+  tasks:
+    - name: Run Nginx container
+      community.docker.docker_container:
+        name: web-app
+        image: nginx:latest
+        state: started
+        restart_policy: unless-stopped
+        published_ports:
+          - "8080:80"
+
