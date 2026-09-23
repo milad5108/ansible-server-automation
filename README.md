@@ -321,6 +321,32 @@ web-app container: Up
 HTTP response: 200 OK
 ```
 
+## Validation Evidence
+
+### Ansible Connectivity
+
+![Ansible Ping](evidence/01-ansible-ping.png)
+
+### Firewall Validation
+
+![UFW Firewall Validation](evidence/02-firewall-validation.png)
+
+### Docker Handler
+
+![Docker Handler](evidence/03-docker-handler.png)
+
+### Container Deployment
+
+![Nginx Container Deployment](evidence/04-deployment-validation.png)
+
+### HTTP Validation
+
+![HTTP 200 OK](evidence/05-http-200.png)
+
+### Ansible Lint
+
+![Ansible Lint](evidence/06-ansible-lint.png)
+
 ## Security Notes
 
 - SSH private keys are never committed to the repository.
