@@ -1,0 +1,6 @@
+---
+web_app_name: web-app
+web_app_image: nginx:latest
+web_app_host_port: 8080
+web_app_container_port: 80
+

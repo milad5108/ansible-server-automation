@@ -11,9 +11,31 @@
         update_cache: true
         cache_valid_time: 3600
 
+    - name: Configure Docker daemon
+      ansible.builtin.copy:
+        dest: /etc/docker/daemon.json
+        content: |
+          {
+            "log-driver": "json-file",
+            "log-opts": {
+              "max-size": "10m",
+              "max-file": "3"
+            }
+          }
+        owner: root
+        group: root
+        mode: "0644"
+      notify: Restart Docker
+
     - name: Ensure Docker service is enabled and running
       ansible.builtin.service:
         name: docker
         state: started
         enabled: true
+
+  handlers:
+    - name: Restart Docker
+      ansible.builtin.service:
+        name: docker
+        state: restarted
 

@@ -6,10 +6,10 @@
   tasks:
     - name: Run Nginx container
       community.docker.docker_container:
-        name: web-app
-        image: nginx:latest
+        name: "{{ web_app_name }}"
+        image: "{{ web_app_image }}"
         state: started
         restart_policy: unless-stopped
         published_ports:
-          - "8080:80"
+          - "{{ web_app_host_port }}:{{ web_app_container_port }}"
 
